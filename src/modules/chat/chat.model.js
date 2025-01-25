@@ -7,15 +7,42 @@ const chatSchema = new Schema({
   },
   prerequisites: {
     type: Object,
-    name: { type: String, default: null },
-    age: { type: Number, default: null },
-    address: { type: String, default: null },
-    bio: { type: String, default: null },
-    required: true,
+    name: {
+      type: Object,
+      first_name: String,
+      last_name: String,
+      full_name: String,
+    },
+    platform_expectations: {
+      type: [String],
+      required: false,
+    },
+    work_status: {
+      type: String,
+      required: false,
+    },
+    default: {
+      name: {
+        first_name: "",
+        last_name: "",
+        full_name: "",
+      },
+      platform_expectations: [],
+      work_status: "",
+    },
   },
   messages: [
     {
       _id: false,
+      type: {
+        type: String,
+        enum: ["Prerequisite", "Text"],
+        default: "Text",
+      },
+      prerequisite: {
+        type: Object,
+        required: false,
+      },
       message: {
         type: String,
         required: true,

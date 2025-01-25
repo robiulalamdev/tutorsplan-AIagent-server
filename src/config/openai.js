@@ -14,7 +14,7 @@ const generateAIMessage = async (messages = [], userInfo = "") => {
           role: "system",
           content: ` You are an AI assistant designed to help the user with detailed and structured information. Please respond politely, offering assistance as a knowledgeable assistant helper.
             
-          User information: 
+          User Information: 
           ${userInfo}
             `,
         },
